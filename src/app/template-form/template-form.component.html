@@ -1,87 +1,70 @@
 <!-- VARIAVEL LOCAL DO FORMULÁRIO DO TIPO NGFORM
     PARA TER ACESSO AO OBJETO DO FORMULARIO-->
 <form #myForm="ngForm" (submit)="onSubmit(myForm)">
-  <mat-grid-list cols="2" rowHeight="20:2">
-    <!-- DIRETIVA PARA AGRUPAR OS CAMPOS DE UM OBJETO -->
-    <div ngModelGroup="informacoes">
-      <mat-grid-tile>
-        <mat-form-field>
-          <!-- NGMODEL DEFINE O CAMPO COMO SENDO PARTE DO
-            FORMULÁRIO OBRIGATORIAMENTE PRECISA DO NAME -->
-          <input matInput ngModel placeholder="Nome" name="nome">
-        </mat-form-field>
-      </mat-grid-tile>
-      <mat-grid-tile>
-        <mat-form-field>
-          <!-- NGMODEL COM PROPERTY BIND PUXA PROPRIEDADES DO COMPONENTE
-          NO CASO, A IDADE A SER EXIBIDA (25) É A QUE ESTÁ DEFINIDA NO COMPONENTE
+  <!-- DIRETIVA PARA AGRUPAR OS CAMPOS DE UM OBJETO -->
+  <div ngModelGroup="informacoes">
+    <label>
+      <p>Nome</p>
+      <!-- NGMODEL DEFINE O CAMPO COMO SENDO PARTE DO
+          FORMULÁRIO OBRIGATORIAMENTE PRECISA DO NAME -->
+      <input type="text" name="nome" ngModel>
+      {{ informacoes.nome }}
+    </label>
+    <label>
+      <p>Idade</p>
+      <!-- NGMODEL COM PROPERTY BIND PUXA PROPRIEDADES DO COMPONENTE
+        NO CASO, A IDADE A SER EXIBIDA (25) É A QUE ESTÁ DEFINIDA NO COMPONENTE
         PARA A CHAMADA DESSE VALOR É NECESSÁRIO O CAMINHO ATÉ ELE: INFORMACOES.IDADE-->
-          <input matInput [ngModel]="informacoes.idade" placeholder="Idade" name="idade">
-        </mat-form-field>
-        Propriedade com interpolação: {{ informacoes.idade }}
-      </mat-grid-tile>
-      <mat-grid-tile>
-        <mat-form-field>
-          <!-- NGMODEL COM TWO WAY DATA BIND RECEBE UM VALOR DO COMPONENTE E O ALTERA
+      <input type="number" name="idade" [ngModel]="informacoes.idade">
+    </label>
+    <label>
+      <p>E-mail</p>
+      <!-- NGMODEL COM TWO WAY DATA BIND RECEBE UM VALOR DO COMPONENTE E O ALTERA
           AO MESMO TEMPO, ELE IRÁ RECEBER T@T.COM E PODERÁ SER ALTERADO EM TEMPO REAL-->
-          <input matInput [(ngModel)]="informacoes.email" placeholder="Email" name="email">
-        </mat-form-field>
-        Propriedade com interpolação two-way: {{ informacoes.email }}
-      </mat-grid-tile>
-      <mat-grid-tile>
-        <mat-form-field>
-          <input matInput ngModel placeholder="Telefone" name="telefone">
-        </mat-form-field>
-      </mat-grid-tile>
-      <mat-grid-tile>
-        <mat-form-field>
-          <input matInput ngModel placeholder="Skype" name="skype">
-        </mat-form-field>
-      </mat-grid-tile>
-      <mat-grid-tile>
-        <mat-form-field>
-          <input matInput ngModel placeholder="Cor" name="cor">
-        </mat-form-field>
-      </mat-grid-tile>
-      <div ngModelGroup="endereco">
-        <mat-grid-tile>
-          <mat-form-field>
-            <input matInput ngModel placeholder="CEP" name="cep">
-          </mat-form-field>
-        </mat-grid-tile>
-        <mat-grid-tile>
-          <mat-form-field>
-            <input matInput ngModel placeholder="Endereço" name="logradouro">
-          </mat-form-field>
-        </mat-grid-tile>
-        <mat-grid-tile>
-          <mat-form-field>
-            <input matInput ngModel placeholder="Número" name="numero">
-          </mat-form-field>
-        </mat-grid-tile>
-        <mat-grid-tile>
-          <mat-form-field>
-            <input matInput ngModel placeholder="Complemento" name="complemento">
-          </mat-form-field>
-        </mat-grid-tile>
-        <mat-grid-tile>
-          <mat-form-field>
-            <input matInput ngModel placeholder="Bairro" name="bairro">
-          </mat-form-field>
-        </mat-grid-tile>
-        <mat-grid-tile>
-          <mat-form-field>
-            <input matInput ngModel placeholder="Cidade" name="localidade">
-          </mat-form-field>
-        </mat-grid-tile>
-        <mat-grid-tile>
-          <mat-form-field>
-            <input matInput ngModel placeholder="Estado" name="uf">
-          </mat-form-field>
-        </mat-grid-tile>
-      </div>
-    </div>
-  </mat-grid-list>
-  <button mat-raised-button color="primary">Enviar</button>
+      <input [(ngModel)]="informacoes.email" name="email">
+    </label>
+    <label>
+      <p>Confirmar E-mail</p>
+      <input type="email" name="confirmaEmail" ngModel>
+    </label>
+  </div>
+
+  <div ngModelGroup="endereco">
+    <label>
+      <p>CEP</p>
+      <!-- CRIAR VARIAVEL PARA ARMAZENAMENTO DO INPUT DO CEP -->
+      <!-- O QUE FOR DIGITADO OU SEJA, O VALOR DO INPUT SERA PASSADO PARA O METODO GETADDRESS
+            DISPARADO QUANDO FOR TIRADO O FOCO DO CAMPO -->
+      <input type="text" name="cep" ngModel #cep (blur)="getAddress(cep.value)">
+    </label>
+    <label>
+      <p>Endereco</p>
+      <input type="text" name="logradouro" ngModel>
+    </label>
+    <label>
+      <p>Número</p>
+      <input type="text" name="numero" ngModel>
+    </label>
+    <label>
+      <p>Complemento</p>
+      <input type="text" name="complemento" ngModel>
+    </label>
+    <label>
+      <p>Bairro</p>
+      <input type="text" name="bairro" ngModel>
+    </label>
+    <label>
+      <p>Cidade</p>
+      <input type="text" name="localidade" ngModel>
+    </label>
+    <label>
+      <p>Estado</p>
+      <input type="text" name="uf" ngModel>
+    </label>
+  </div>
+
+  <button type="submit">Enviar</button>
 </form>
+
+
 <pre> {{ myForm.value | json }}</pre>

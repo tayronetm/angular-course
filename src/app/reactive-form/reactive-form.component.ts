@@ -38,6 +38,19 @@ export class ReactiveFormComponent implements OnInit {
   }
 
   ngOnInit() {
+    // VERIFICAR AS MUDANCAS DE STATUS DO FORMULARIO, SE TA VALIDO OU NAO
+    // this.myForm.statusChanges
+    // VERIFICAR AS MUDANCAS DE STAUS DO CAMPO, SE TA VALIDO OU NAO
+    // this.myForm.get('informacoes.nome').statusChanges
+    // VERIFICAR AS MUDANCAS DE VALOR DO CAMPO
+    // this.myForm.get('informacoes.nome').valueChanges
+    // VERIFICAR AS MUDANCAS DE VALOR DO FORMULARIO
+    // this.myForm.valueChanges
+
+    this.myForm.get('informacoes.nome').valueChanges
+      .subscribe(
+        value => console.log('Valor alterado', value)
+      )
   }
 
   getAddress() {

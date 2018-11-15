@@ -20,6 +20,7 @@
       <!-- NGMODEL COM PROPERTY BIND PUXA PROPRIEDADES DO COMPONENTE
         NO CASO, A IDADE A SER EXIBIDA (25) É A QUE ESTÁ DEFINIDA NO COMPONENTE
         PARA A CHAMADA DESSE VALOR É NECESSÁRIO O CAMINHO ATÉ ELE: INFORMACOES.IDADE-->
+        <!-- O DISABLED SERVE PARA DESEBILITAR O CAMPO ENQUANTO O NOME NAO FOR VALIDO -->
       <input type="number" name="idade" [ngModel]="informacoes.idade" [disabled]="elNome.invalid">
     </label>
     <label>

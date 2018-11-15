@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-reactive-form',
@@ -11,7 +12,9 @@ export class ReactiveFormComponent implements OnInit {
 
   myForm: FormGroup;
 
-  constructor(private fb: FormBuilder)
+  constructor(
+    private httpClient: HttpClient,
+    private fb: FormBuilder)
   {
     this.myForm = this.fb.group({
       informacoes: this.fb.group({
@@ -35,6 +38,15 @@ export class ReactiveFormComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  getAddress() {
+    this.httpClient.get(`http://viacep.com.br/ws/${this.myForm.get('endereco.cep').value}/json/`)
+      .subscribe(
+        endereco => {
+          this.myForm.patchValue({endereco})
+        }
+      )
   }
 
 }

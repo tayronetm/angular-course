@@ -12,6 +12,15 @@ export class ReactiveFormComponent implements OnInit {
 
   myForm: FormGroup;
 
+  states = [
+    { nome: 'oi1', value: 1},
+    { nome: 'oi2', value: 2},
+    { nome: 'oi3', value: 3},
+    { nome: 'oi4', value: 4},
+    { nome: 'oi5', value: 5},
+
+  ]
+
   constructor(
     private httpClient: HttpClient,
     private fb: FormBuilder)

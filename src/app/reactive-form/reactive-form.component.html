@@ -45,7 +45,13 @@
       </label>
       <label>
         <p>Estado</p>
-        <input type="text" formControlName="uf">
+        <select formControlName="uf">
+          <!-- FOR NO ARRAY STATES CRIADO NO COMPONENTE, SERÁ MOSTRADO NO SELECT O LET.NOME
+          PROPERTY VALUE PARA MANDAR O VALOR E NAO O NOME -->
+          <option *ngFor="let state of states" [value]="state.value">
+            {{ state.nome }}
+          </option>
+        </select>
       </label>
     </div>
 

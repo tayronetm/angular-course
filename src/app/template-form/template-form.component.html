@@ -7,15 +7,20 @@
       <p>Nome</p>
       <!-- NGMODEL DEFINE O CAMPO COMO SENDO PARTE DO
           FORMULÁRIO OBRIGATORIAMENTE PRECISA DO NAME -->
-      <input type="text" name="nome" minlength="5" ngModel>
+      <input #elNome="ngModel" type="text" name="nome" required minlength="5" ngModel>
       {{ informacoes.nome }}
+      <!-- ESTA LISTA DE ERROS SÓ DEVE APARECER QUANDO O CAMPO FOR MEXIDO E ESTÁ INVALIDO -->
+      <ul *ngIf="elNome.dirty && elNome.invalid" >
+          <li *ngIf="elNome.errors?.required" >Campo é obrigatório</li>
+          <li *ngIf="elNome.errors?.minlength" >Nome muito curto</li>
+        </ul>
     </label>
     <label>
       <p>Idade</p>
       <!-- NGMODEL COM PROPERTY BIND PUXA PROPRIEDADES DO COMPONENTE
         NO CASO, A IDADE A SER EXIBIDA (25) É A QUE ESTÁ DEFINIDA NO COMPONENTE
         PARA A CHAMADA DESSE VALOR É NECESSÁRIO O CAMINHO ATÉ ELE: INFORMACOES.IDADE-->
-      <input type="number" name="idade" [ngModel]="informacoes.idade">
+      <input type="number" name="idade" [ngModel]="informacoes.idade" [disabled]="elNome.invalid">
     </label>
     <label>
       <p>E-mail</p>

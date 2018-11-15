@@ -1,0 +1,40 @@
+  <!-- VARIAVEL LOCAL DO FORMULÁRIO DO TIPO NGFORM
+    PARA TER ACESSO AO OBJETO DO FORMULARIO-->
+<form #myForm="ngForm" (submit)="onSubmit(myForm)">
+  <mat-grid-list cols="3" rowHeight="5:1">
+    <mat-grid-tile>
+      <mat-form-field>
+        <!-- NGMODEL DEFINE O CAMPO COMO SENDO PARTE DO
+          FORMULÁRIO OBRIGATORIAMENTE PRECISA DO NAME -->
+        <input matInput ngModel placeholder="Nome" name="nome">
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-form-field>
+        <input matInput ngModel placeholder="Idade" name="idade">
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-form-field>
+        <input matInput ngModel placeholder="Email" name="email">
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-form-field>
+        <input matInput ngModel placeholder="Telefone" name="telefone">
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-form-field>
+        <input matInput ngModel placeholder="Skype" name="skype">
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-form-field>
+        <input matInput ngModel placeholder="Cor" name="cor">
+      </mat-form-field>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <button mat-raised-button color="primary">Enviar</button>
+</form>
+<pre> {{ myForm.value | json }}</pre>

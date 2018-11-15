@@ -1,7 +1,7 @@
   <!-- VARIAVEL LOCAL DO FORMULÁRIO DO TIPO NGFORM
     PARA TER ACESSO AO OBJETO DO FORMULARIO-->
 <form #myForm="ngForm" (submit)="onSubmit(myForm)">
-  <mat-grid-list cols="3" rowHeight="5:1">
+  <mat-grid-list cols="1" rowHeight="20:2">
     <mat-grid-tile>
       <mat-form-field>
         <!-- NGMODEL DEFINE O CAMPO COMO SENDO PARTE DO
@@ -11,13 +11,20 @@
     </mat-grid-tile>
     <mat-grid-tile>
       <mat-form-field>
-        <input matInput ngModel placeholder="Idade" name="idade">
+        <!-- NGMODEL COM PROPERTY BIND PUXA PROPRIEDADES DO COMPONENTE
+        NO CASO, A IDADE A SER EXIBIDA (25) É A QUE ESTÁ DEFINIDA NO COMPONENTE
+      PARA A CHAMADA DESSE VALOR É NECESSÁRIO O CAMINHO ATÉ ELE: INFORMACOES.IDADE-->
+        <input matInput [ngModel]="informacoes.idade" placeholder="Idade" name="idade">
       </mat-form-field>
+      Propriedade com interpolação: {{ informacoes.idade }}
     </mat-grid-tile>
     <mat-grid-tile>
       <mat-form-field>
-        <input matInput ngModel placeholder="Email" name="email">
+        <!-- NGMODEL COM TWO WAY DATA BIND RECEBE UM VALOR DO COMPONENTE E O ALTERA
+        AO MESMO TEMPO, ELE IRÁ RECEBER T@T.COM E PODERÁ SER ALTERADO EM TEMPO REAL-->
+        <input matInput [(ngModel)]="informacoes.email" placeholder="Email" name="email">
       </mat-form-field>
+      Propriedade com interpolação two-way: {{ informacoes.email }}
     </mat-grid-tile>
     <mat-grid-tile>
       <mat-form-field>

@@ -8,12 +8,14 @@ import { MatInputModule, MatGridListModule, MatButtonModule } from '@angular/mat
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
+import { LifeCycleComponent } from './life-cycle/life-cycle.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TemplateFormComponent,
     ReactiveFormComponent,
+    LifeCycleComponent,
   ],
   imports: [
     BrowserModule,

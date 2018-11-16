@@ -15,7 +15,7 @@ export class ValidatorsService {
     const value = control.value || '',
     errorMessage = `O nome deve começar com "J", mas começa com ${value[0]}`;
 
-    return value.toLoweCase()[0] === "J" ? null: {'invalidName': errorMessage};
+    return value.toLowerCase()[0] === "J" ? null: {'invalidName': errorMessage};
   }
 
   userValidation(control: FormControl){

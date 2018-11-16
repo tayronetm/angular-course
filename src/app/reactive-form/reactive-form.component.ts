@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { ValidatorsService } from '../validators.service';
 
@@ -10,7 +10,7 @@ import { ValidatorsService } from '../validators.service';
 })
 export class ReactiveFormComponent implements OnInit {
 
-
+  myFormArray: FormGroup;
   myForm: FormGroup;
 
   states = [
@@ -48,6 +48,10 @@ export class ReactiveFormComponent implements OnInit {
 
       })
     })
+    // CRIACAO DO FORMULARIO FORM ARRAY, CREATEFRUIT PARA INICIAR COM CAMPOS
+    this.myFormArray = this.fb.group({
+      fruits: this.fb.array([this.createFruit()])
+    })
 
   }
 
@@ -65,6 +69,16 @@ export class ReactiveFormComponent implements OnInit {
       .subscribe(
         value => console.log('Valor alterado', value)
       )
+  }
+
+  addFruit() {
+    const fruits =  this.myFormArray.get('fruits') as FormArray;
+    fruits.push(this.createFruit());
+  }
+
+  removeFruit(index) {
+    const fruits =  this.myFormArray.get('fruits') as FormArray;
+    fruits.removeAt(index);
   }
 
   getAddress() {
@@ -96,6 +110,13 @@ export class ReactiveFormComponent implements OnInit {
       return obj1.value === obj2.value;
     }
     return false;
+  }
+  // FUNCAO DE CRIACAO DOS ELEMENTOS DO FORM ARRAY
+  createFruit() {
+    return this.fb.group({
+      name: [null],
+      price: [null]
+    })
   }
 
 }

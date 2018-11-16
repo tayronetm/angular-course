@@ -31,7 +31,8 @@ export class ReactiveFormComponent implements OnInit {
       informacoes: this.fb.group({
         nome: [null, [Validators.required,
                       Validators.minLength(5),
-                      this.errorMessage.nameValidation]],
+                      this.errorMessage.nameValidation],
+                      [this.errorMessage.userValidation.bind(this.errorMessage)]],
         email: [null, Validators.required],
         idade: [null, Validators.required],
         confirmaEmail: [null, Validators.required]

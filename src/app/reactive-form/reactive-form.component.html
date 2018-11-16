@@ -1,3 +1,5 @@
+<button (click)="setState()">Povoate</button>
+
   <form [formGroup]="myForm">
     <div formGroupName="informacoes" >
       <label>
@@ -45,10 +47,13 @@
       </label>
       <label>
         <p>Estado</p>
-        <select formControlName="uf">
+        <select formControlName="uf" [compareWith]="compararObjetos">
           <!-- FOR NO ARRAY STATES CRIADO NO COMPONENTE, SERÁ MOSTRADO NO SELECT O LET.NOME
           PROPERTY VALUE PARA MANDAR O VALOR E NAO O NOME -->
-          <option *ngFor="let state of states" [value]="state.value">
+          <!-- O OBJETO CRIADO NO METODO SETSTATE PRECISA SER PASSADO PARA ESSE CAMPO
+          MAS ANTES ELE PRECISA SER COMPARADO (OBJETO COM OBJETO) COM O COMPAREWITH
+        A DIRETIVA [VALUE] SÓ IRÁ PUXAR VALORES MAIS SIMPLES PARA ISSO USE O NGVALUE-->
+          <option *ngFor="let state of states" [ngValue]="state">
             {{ state.nome }}
           </option>
         </select>

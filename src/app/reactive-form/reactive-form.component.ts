@@ -71,4 +71,26 @@ export class ReactiveFormComponent implements OnInit {
       )
   }
 
+  setState() {
+    // VALOR A SER INSERIDO NO SELECT BOX
+    const myState = {nome:'oi2', value: 2};
+    const myName = 'Shwaznegger';
+    const myIdade = 25;
+    const myEmail = 'Meu email';
+    const myEmail2 = 'Meu email 2';
+
+    this.myForm.get('endereco.uf').setValue(myState);
+    this.myForm.get('informacoes.nome').setValue(myName);
+    this.myForm.get('informacoes.idade').setValue(myIdade);
+    this.myForm.get('informacoes.email').setValue(myEmail);
+    this.myForm.get('informacoes.confirmaEmail').setValue(myEmail2);
+  }
+
+  compararObjetos(obj1, obj2){
+    if (obj1 && obj2){
+      return obj1.value === obj2.value;
+    }
+    return false;
+  }
+
 }

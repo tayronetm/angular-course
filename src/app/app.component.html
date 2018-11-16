@@ -2,7 +2,14 @@
 <!-- A DIREITA A VARIAVEL LOCAL -->
 <app-input-output [nomeExterno]="nome" (myClick)="handleClick($event)"></app-input-output>
 
-<app-view-child></app-view-child>
+<!-- <app-view-child></app-view-child>-->
+
+<app-ng-content>
+  <!-- A DIV ABAIXO SÓ IRÁ APARECER SE NO TEMPLATE TIVER UMA TAG NG-CONTENT -->
+  <div>
+    <button>Click</button>
+  </div>
+</app-ng-content>
 
 <!-- <!-- <app-template-form></app-template-form> -->
 

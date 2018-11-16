@@ -11,6 +11,7 @@ import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { LifeCycleComponent } from './life-cycle/life-cycle.component';
 import { InputOutputComponent } from './input-output/input-output.component';
 import { ViewChildComponent } from './view-child/view-child.component';
+import { NgContentComponent } from './ng-content/ng-content.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { ViewChildComponent } from './view-child/view-child.component';
     ReactiveFormComponent,
     LifeCycleComponent,
     ViewChildComponent,
+    NgContentComponent,
   ],
   imports: [
     BrowserModule,

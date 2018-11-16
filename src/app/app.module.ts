@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { LifeCycleComponent } from './life-cycle/life-cycle.component';
 import { InputOutputComponent } from './input-output/input-output.component';
+import { ViewChildComponent } from './view-child/view-child.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { InputOutputComponent } from './input-output/input-output.component';
     TemplateFormComponent,
     ReactiveFormComponent,
     LifeCycleComponent,
+    ViewChildComponent,
   ],
   imports: [
     BrowserModule,

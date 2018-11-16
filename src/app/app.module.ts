@@ -9,10 +9,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { LifeCycleComponent } from './life-cycle/life-cycle.component';
+import { InputOutputComponent } from './input-output/input-output.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    InputOutputComponent,
     TemplateFormComponent,
     ReactiveFormComponent,
     LifeCycleComponent,

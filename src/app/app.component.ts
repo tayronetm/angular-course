@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  nome = 'Estou no AppComponent';
   title = 'angular-forms';
   // VARIAVEL QUE IRÁ DEFINIR O ESTADO DE VIDA DO COMPONENTE
   isVisible = true;
@@ -14,5 +15,9 @@ export class AppComponent {
     setTimeout(() => {
       this.isVisible = false;
     }, 2000)
+  }
+
+  handleClick(event){
+    console.log('Método disparado pelo app.component')
   }
 }

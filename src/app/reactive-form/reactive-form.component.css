@@ -1,0 +1,15 @@
+/* SE O CAMPO FOI MEXIDO E ESTÁ INVALIDO */
+input.ng-dirty.ng-invalid{
+  border:3px solid red;
+}
+/* SE O CAMPO FOI MEXIDO E ESTÁ VÁLIDO */
+input.ng-dirty.ng-valid{
+  border:3px solid rgb(12, 204, 12)
+}
+/* BOTAO NAO ACENDE COM FORMULARIO INVALIDO */
+form.ng-invalid button{
+   pointer-events:none;
+   opacity:0.5;
+   background-color: darkgray;
+
+}

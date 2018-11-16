@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { ValidatorsService } from '../validators.service';
 
 @Component({
   selector: 'app-reactive-form',
@@ -23,22 +24,25 @@ export class ReactiveFormComponent implements OnInit {
 
   constructor(
     private httpClient: HttpClient,
-    private fb: FormBuilder)
+    private fb: FormBuilder,
+    private errorMessage: ValidatorsService)
   {
     this.myForm = this.fb.group({
       informacoes: this.fb.group({
-        nome: [null],
-        email: [null],
-        idade: [null],
-        confirmaEmail: [null]
+        nome: [null, [Validators.required,
+                      Validators.minLength(5),
+                      this.errorMessage.nameValidation]],
+        email: [null, Validators.required],
+        idade: [null, Validators.required],
+        confirmaEmail: [null, Validators.required]
       }),
       endereco: this.fb.group({
-        cep: [null],
-        logradouro: [null],
-        numero: [null],
-        complemento: [null],
-        bairro: [null],
-        localidade: [null],
+        cep: [null, Validators.required],
+        logradouro: [null, Validators.required],
+        numero: [null, Validators.required],
+        complemento: [null, Validators.required],
+        bairro: [null, Validators.required],
+        localidade: [null, Validators.required],
         uf: [null]
 
       })

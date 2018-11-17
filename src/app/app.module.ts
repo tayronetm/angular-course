@@ -14,6 +14,10 @@ import { ViewChildComponent } from './view-child/view-child.component';
 import { NgContentComponent } from './ng-content/ng-content.component';
 import { HostListenerComponent } from './host-listener/host-listener.component';
 import { HostDirective } from './host-listener/host.directive';
+import { PipesComponent } from './pipes/pipes.component';
+import { ReversePipe } from './pipes/reverse.pipe';
+import { AppRoutingModule } from './app-routing.module';
+import { CoursesModule } from './courses/courses.module';
 
 @NgModule({
   declarations: [
@@ -26,6 +30,8 @@ import { HostDirective } from './host-listener/host.directive';
     NgContentComponent,
     HostListenerComponent,
     HostDirective,
+    PipesComponent,
+    ReversePipe,
   ],
   imports: [
     BrowserModule,
@@ -35,7 +41,9 @@ import { HostDirective } from './host-listener/host.directive';
     MatButtonModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AppRoutingModule,
+    CoursesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

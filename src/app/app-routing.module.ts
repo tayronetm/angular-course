@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CoursesListComponent } from './courses/courses-list.component';
+import { RouterGuardGuard } from './router-guard.guard';
 
 // AQUI SAO FEITAS AS CONFIGURACOES DAS ROTAS
 const routes: Routes = [
@@ -11,23 +12,20 @@ const routes: Routes = [
     children: [
         // ROTAS FLHAS ROTA QUE RECEBE VARIAVEL VEM por ultimo
       {
-        path: 'novo',
-        component: CoursesListComponent
-      },
-      {
-        path: 'atualizar',
-        component: CoursesListComponent
-      },
-      {
         path: ':nome',
-        component: CoursesListComponent
+        component: CoursesListComponent,
+        canActivate: [RouterGuardGuard]
       },
+      // {
+      //   path: 'atualizar',
+      //   component: CoursesListComponent
+      // },
+      // {
+      //   path: ':novo',
+      //   component: CoursesListComponent
+      // },
     ]
   },
-  // {
-  //   path: 'cursos',
-  //   component: CoursesListComponent
-  // }
   // PASSANDO ROTA COM PARAMETRO DOIS PONTOS MAIS VARIAVEL
   {
     path: 'cursos/:nome',

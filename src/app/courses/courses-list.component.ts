@@ -16,7 +16,12 @@ export class CoursesListComponent implements OnInit {
     private actRout: ActivatedRoute,
     private router: Router
   ) {
-    this.name = this.actRout.snapshot.params['nome'];
+
+    this.actRout.params.subscribe(
+      params => {
+        this.name = params['nome'];
+      }
+    )
   }
   // ALTERACAO DA ROTA POR CODIGO
   ngOnInit() {

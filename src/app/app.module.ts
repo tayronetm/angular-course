@@ -17,7 +17,7 @@ import { HostDirective } from './host-listener/host.directive';
 import { PipesComponent } from './pipes/pipes.component';
 import { ReversePipe } from './pipes/reverse.pipe';
 import { AppRoutingModule } from './app-routing.module';
-import { CoursesModule } from './courses/courses.module';
+// import { CoursesModule } from './courses/courses.module';
 
 @NgModule({
   declarations: [
@@ -43,7 +43,7 @@ import { CoursesModule } from './courses/courses.module';
     HttpClientModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    CoursesModule
+    // CoursesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

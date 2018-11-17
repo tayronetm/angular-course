@@ -1,10 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { CoursesListComponent } from './courses/courses-list.component';
-import { RouterGuardGuard } from './router-guard.guard';
 
-// AQUI SAO FEITAS AS CONFIGURACOES DAS ROTAS
-const routes: Routes = [];
+
+// AQUI SAO FEITAS AS CONFIGURACOES DAS ROTAS (SEPARADAS POR MODULOS)
+const routes: Routes = [
+  {
+    path: 'cursos',
+    loadChildren: 'src/app/courses/courses.module#CoursesModule'
+  }
+
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

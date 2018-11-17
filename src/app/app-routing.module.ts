@@ -4,8 +4,13 @@ import { CoursesListComponent } from './courses/courses-list.component';
 
 // AQUI SAO FEITAS AS CONFIGURACOES DAS ROTAS
 const routes: Routes = [
+  // {
+  //   path: 'cursos',
+  //   component: CoursesListComponent
+  // }
+  // PASSANDO ROTA COM PARAMETRO DOIS PONTOS MAIS VARIAVEL
   {
-    path: 'cursos',
+    path: 'cursos/:nome',
     component: CoursesListComponent
   }
 ];

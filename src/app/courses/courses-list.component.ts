@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router'
 
 @Component({
   selector: 'app-courses-list',
@@ -7,7 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CoursesListComponent implements OnInit {
 
-  constructor() { }
+  name = '';
+
+  // DECLARAR VARIAVEL DE ATRIBUTO DA ROTA
+
+  constructor(
+    private actRout: ActivatedRoute
+  ) {
+    this.name = this.actRout.snapshot.params['nome'];
+  }
 
   ngOnInit() {
   }

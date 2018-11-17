@@ -16,7 +16,7 @@ export class RouterGuardGuard implements CanActivate, CanDeactivate<CoursesListC
     return true;
   }
 
-  // NAO DEIXA SAIR SE RETORNAR FAALSO
+  // NAO DEIXA SAIR SE RETORNAR FALSO
   canDeactivate(
     component: CoursesListComponent,
     next: ActivatedRouteSnapshot,

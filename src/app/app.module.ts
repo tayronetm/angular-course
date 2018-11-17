@@ -12,6 +12,8 @@ import { LifeCycleComponent } from './life-cycle/life-cycle.component';
 import { InputOutputComponent } from './input-output/input-output.component';
 import { ViewChildComponent } from './view-child/view-child.component';
 import { NgContentComponent } from './ng-content/ng-content.component';
+import { HostListenerComponent } from './host-listener/host-listener.component';
+import { HostDirective } from './host-listener/host.directive';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,8 @@ import { NgContentComponent } from './ng-content/ng-content.component';
     LifeCycleComponent,
     ViewChildComponent,
     NgContentComponent,
+    HostListenerComponent,
+    HostDirective,
   ],
   imports: [
     BrowserModule,

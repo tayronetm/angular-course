@@ -4,6 +4,26 @@ import { CoursesListComponent } from './courses/courses-list.component';
 
 // AQUI SAO FEITAS AS CONFIGURACOES DAS ROTAS
 const routes: Routes = [
+// PARA EVITAR REPETICOES DE CURSOS AGRUPO TODOS OS ELEMENTOS DETRO DE UM ARRAY CHILD
+  {
+    // ROTA PRINCIPAL
+    path: 'cursos',
+    children: [
+        // ROTAS FLHAS ROTA QUE RECEBE VARIAVEL VEM por ultimo
+      {
+        path: 'novo',
+        component: CoursesListComponent
+      },
+      {
+        path: 'atualizar',
+        component: CoursesListComponent
+      },
+      {
+        path: ':nome',
+        component: CoursesListComponent
+      },
+    ]
+  },
   // {
   //   path: 'cursos',
   //   component: CoursesListComponent
@@ -12,7 +32,7 @@ const routes: Routes = [
   {
     path: 'cursos/:nome',
     component: CoursesListComponent
-  }
+  },
 ];
 
 @NgModule({

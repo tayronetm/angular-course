@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router'
+import { ActivatedRoute, Router } from '@angular/router'
 
 @Component({
   selector: 'app-courses-list',
@@ -13,12 +13,14 @@ export class CoursesListComponent implements OnInit {
   // DECLARAR VARIAVEL DE ATRIBUTO DA ROTA
 
   constructor(
-    private actRout: ActivatedRoute
+    private actRout: ActivatedRoute,
+    private router: Router
   ) {
     this.name = this.actRout.snapshot.params['nome'];
   }
-
+  // ALTERACAO DA ROTA POR CODIGO
   ngOnInit() {
+    // this.router.navigate(['/cursos/sencha'])
   }
 
 }

@@ -1,5 +1,12 @@
 <p>
-  courses-list works!
+  Lista de cursos
 </p>
+
+<ul>
+  <!-- ROUTER LINK REFERE-SE A ROTAS O ROUTERLINKACTIVATE REFERE-SE A UMA CLASSE CSS -->
+  <li><a [routerLink]="'/cursos/angular'" routerLinkActive="ativo">Angular</a></li>
+  <li><a [routerLink]="'/cursos/react'" routerLinkActive="ativo">React</a></li>
+  <li><a [routerLink]="'/cursos/vue'" routerLinkActive="ativo">Vue</a></li>
+</ul>
 
 Variavel definida na rota {{ name }}
